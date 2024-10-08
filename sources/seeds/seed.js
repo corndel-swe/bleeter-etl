@@ -7,8 +7,6 @@ import jwt from 'jsonwebtoken' // Import jsonwebtoken for JWT creation
 import fs from 'fs'
 import { Parser } from 'json2csv' // Library to convert JSON to CSV
 
-console.log('COOL!')
-
 // Connect to the database
 const db = knex(development)
 
@@ -174,80 +172,80 @@ async function seedDatabase() {
     await db.batchInsert('notifications', notifications, 140)
     console.log('Inserted notifications:', notifications.length)
 
+    // Now, generate user sessions and write them to a CSV file
+    console.log('Generating sessions and writing to CSV...')
+    const sessions = []
+    const deviceTypes = ['Desktop', 'Mobile', 'Tablet']
+    const countries = [
+      'USA',
+      'Canada',
+      'UK',
+      'Australia',
+      'Germany',
+      'France',
+      'India',
+      'Brazil',
+      'Japan',
+      'South Africa'
+    ]
+
+    for (let i = 0; i < 5000; i++) {
+      const userId = faker.helpers.arrayElement(users.map(user => user.user_id))
+      const sessionStart = faker.date.past()
+      const sessionDuration = faker.number.int({
+        min: 5 * 60 * 1000,
+        max: 2 * 60 * 60 * 1000
+      }) // 5 minutes to 2 hours in milliseconds
+      const sessionEnd = new Date(sessionStart.getTime() + sessionDuration)
+      const ipAddress = faker.internet.ip()
+      const deviceType = faker.helpers.arrayElement(deviceTypes)
+      const country = faker.helpers.arrayElement(countries)
+
+      // Generate JWT token with user_id in the payload
+      const payload = { user_id: userId }
+      const sessionToken = jwt.sign(payload, jwtSigningKey, { expiresIn: '2h' })
+
+      sessions.push({
+        session_id: faker.string.uuid(),
+        user_id: userId,
+        session_start: sessionStart.toISOString(),
+        session_end: sessionEnd.toISOString(),
+        ip_address: ipAddress,
+        device_type: deviceType,
+        country: country,
+        session_token: sessionToken
+      })
+    }
+
+    // Define CSV fields
+    const csvFields = [
+      'session_id',
+      'user_id',
+      'session_start',
+      'session_end',
+      'ip_address',
+      'device_type',
+      'country',
+      'session_token'
+    ]
+
+    // Convert sessions data to CSV format
+    const json2csvParser = new Parser({ fields: csvFields })
+    const csv = json2csvParser.parse(sessions)
+
+    // Write CSV data to file
+    fs.writeFileSync('./sessions.csv', csv)
+    console.log('Sessions data written to sessions.csv')
+
+    console.log('Seeding completed!')
+    process.exit(0)
+
     console.log('Seeding completed!')
     process.exit(0)
   } catch (error) {
     console.error('Error seeding data:', error)
     process.exit(1)
   }
-
-  // Now, generate user sessions and write them to a CSV file
-  console.log('Generating sessions and writing to CSV...')
-  const sessions = []
-  const deviceTypes = ['Desktop', 'Mobile', 'Tablet']
-  const countries = [
-    'USA',
-    'Canada',
-    'UK',
-    'Australia',
-    'Germany',
-    'France',
-    'India',
-    'Brazil',
-    'Japan',
-    'South Africa'
-  ]
-
-  for (let i = 0; i < 5000; i++) {
-    const userId = faker.helpers.arrayElement(users.map(user => user.user_id))
-    const sessionStart = faker.date.past()
-    const sessionDuration = faker.number.int({
-      min: 5 * 60 * 1000,
-      max: 2 * 60 * 60 * 1000
-    }) // 5 minutes to 2 hours in milliseconds
-    const sessionEnd = new Date(sessionStart.getTime() + sessionDuration)
-    const ipAddress = faker.internet.ip()
-    const deviceType = faker.helpers.arrayElement(deviceTypes)
-    const country = faker.helpers.arrayElement(countries)
-
-    // Generate JWT token with user_id in the payload
-    const payload = { user_id: userId }
-    const sessionToken = jwt.sign(payload, jwtSigningKey, { expiresIn: '2h' })
-
-    sessions.push({
-      session_id: faker.string.uuid(),
-      user_id: userId,
-      session_start: sessionStart.toISOString(),
-      session_end: sessionEnd.toISOString(),
-      ip_address: ipAddress,
-      device_type: deviceType,
-      country: country,
-      session_token: sessionToken
-    })
-  }
-
-  // Define CSV fields
-  const csvFields = [
-    'session_id',
-    'user_id',
-    'session_start',
-    'session_end',
-    'ip_address',
-    'device_type',
-    'country',
-    'session_token'
-  ]
-
-  // Convert sessions data to CSV format
-  const json2csvParser = new Parser({ fields: csvFields })
-  const csv = json2csvParser.parse(sessions)
-
-  // Write CSV data to file
-  fs.writeFileSync('./sessions.csv', csv)
-  console.log('Sessions data written to sessions.csv')
-
-  console.log('Seeding completed!')
-  process.exit(0)
 }
 
 seedDatabase()

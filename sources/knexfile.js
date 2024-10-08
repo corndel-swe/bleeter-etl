@@ -1,10 +1,10 @@
 // knexfile.js
 
+const filename = new URL('./bleeter.sqlite', import.meta.url).pathname
+
 export const development = {
   client: 'sqlite3',
-  connection: {
-    filename: './bleeter.sqlite' // SQLite database file
-  },
+  connection: { filename },
   useNullAsDefault: true,
   pool: {
     afterCreate: (conn, done) => {
