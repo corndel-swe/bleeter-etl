@@ -7,6 +7,8 @@ import jwt from 'jsonwebtoken' // Import jsonwebtoken for JWT creation
 import fs from 'fs'
 import { Parser } from 'json2csv' // Library to convert JSON to CSV
 
+console.log('COOL!')
+
 // Connect to the database
 const db = knex(development)
 
@@ -241,7 +243,7 @@ async function seedDatabase() {
   const csv = json2csvParser.parse(sessions)
 
   // Write CSV data to file
-  fs.writeFileSync('sessions.csv', csv)
+  fs.writeFileSync('./sessions.csv', csv)
   console.log('Sessions data written to sessions.csv')
 
   console.log('Seeding completed!')
