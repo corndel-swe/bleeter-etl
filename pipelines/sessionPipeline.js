@@ -1,6 +1,5 @@
 import { extractCSV } from '../extract/extractCSV.js'
 import { transformSessionData } from '../transform/transformSessionData.js'
-import { connectRedis, loadToRedis, quitRedis } from '../load/loadToRedis.js'
 
 async function etlPipeline(filePath) {
   await connectRedis()
