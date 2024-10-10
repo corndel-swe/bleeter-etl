@@ -1,4 +1,2 @@
 node_modules
-sources/migrations
-sources/seeds
-sources/knexfile.js
+.env
