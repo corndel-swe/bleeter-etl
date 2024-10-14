@@ -1,13 +1,32 @@
 {
-  "name": "Redis Stack Dev Environment",
-  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu", // base image
-  "features": {},
-  "postCreateCommand": "docker-compose up -d", // Start Redis Stack in the background
+  "name": "Multi-Language Dev Environment",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu", // Base Ubuntu image
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20" // Node.js 20.x
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.10" // Python 3.10
+    },
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21" // Java 21
+    },
+    "ghcr.io/devcontainers/features/dotnet:1": {
+      "version": "7.0" // .NET 7
+    }
+  },
+  "postCreateCommand": "npm install redis && docker-compose up -d", // Start Redis stack and install Redis client for Node.js
   "forwardPorts": [6379, 8001], // Expose Redis and Redis Stack UI ports
   "customizations": {
     "vscode": {
       "settings": {},
-      "extensions": ["ms-azuretools.vscode-docker", "aliariff.vscode-redis"]
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "aliariff.vscode-redis",
+        "ms-python.python", // Python extension
+        "vscjava.vscode-java-pack", // Java extension
+        "ms-dotnettools.csharp" // C#/.NET extension
+      ]
     }
   }
 }

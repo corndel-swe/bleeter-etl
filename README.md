@@ -47,8 +47,25 @@ any programming language and there is no "right answer" - Bleeter is in an
 experimental stage so try to focus on exploring and researching rather then
 getting everything perfect.
 
+There are two ways to get up and running:
+
+### Option 1: Working locally
+
 If you are working on your local machine, you will need to get
 [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/)
 installed. (Redis Stack contains more features than regular Redis.)
+
+### Option 2: Codespaces
+
+If you are able to use Github Codespaces, it means you don't need to install
+anything locally.
+
+1. At the top right of this repo on github.com, you'll see a green button that
+   says `<> Code`.
+
+2. Click it, switch to the _Codespaces_ tab, and click "Create codespace on
+   main".
+
+## Moving on
 
 Take a look at the `TODO.md` to see what your tasks are in more detail.
