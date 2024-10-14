@@ -26,36 +26,31 @@ We've identified [Redis](https://redis.io/) as a possible solution for the
 problems we're having. Redis is a NoSQL database which we want to use to solve
 the issues.
 
-- We could store user session data in Redis, meaning cheaper server costs and
-  fewer bugs
+- We could store **user session data** in Redis, meaning cheaper server costs
+  and fewer bugs
 
-- We could store our notifications in Redis, which eases the burden on our SQL
-  database and could even support push notifications rather than refreshing to
-  see new notifications
+- We could store our **notifications** in Redis, which eases the burden on our
+  SQL database and could even support push notifications rather than refreshing
+  to see new notifications
 
-- We could rank hashtags as a routine task and cache the results in Redis
+- We could **rank hashtags** as a routine task and cache the results in Redis
   instead of recalculating with every app load
 
-- We could use an LLM to generate ALT text for images, and store the text for
-  each image in Redis and load it alongside the image when users visit the page
+- We could use an LLM to generate **ALT text** for images, and store the text
+  for each image in Redis and load it alongside the image when users visit the
+  page
 
 ## Getting started
 
 In this repo, you are going to be extracting data from one source, transforming
 it, and then loading it into a Redis database. These tasks can be done in almost
 any programming language and there is no "right answer" - Bleeter is in an
-experimental stage so try to focus on exploring and researching rather then
+experimental stage so try to focus on exploring and researching rather than
 getting everything perfect.
 
 There are two ways to get up and running:
 
-### Option 1: Working locally
-
-If you are working on your local machine, you will need to get
-[Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/)
-installed. (Redis Stack contains more features than regular Redis.)
-
-### Option 2: Codespaces
+### Option 1: Codespaces (recommended)
 
 If you are able to use Github Codespaces, it means you don't need to install
 anything locally.
@@ -65,6 +60,14 @@ anything locally.
 
 2. Click it, switch to the _Codespaces_ tab, and click "Create codespace on
    main".
+
+The Codespace has Redis pre-installed, so there is nothing more to do.
+
+### Option 2: Working locally
+
+If you are working on your local machine, you will need to get
+[Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/)
+installed. (Redis Stack contains more features than regular Redis.)
 
 ## Moving on
 
