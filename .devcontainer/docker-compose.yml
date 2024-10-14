@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  redis-stack:
-    image: redis/redis-stack:latest
-    ports:
-      - "6379:6379"
-      - "8001:8001"  # Redis Stack UI
-    command: ["redis-server", "--loadmodule", "/usr/lib/redis/modules/redisearch.so"]
