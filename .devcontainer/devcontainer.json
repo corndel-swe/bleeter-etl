@@ -1,0 +1,13 @@
+{
+  "name": "Redis Stack Dev Environment",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu", // base image
+  "features": {},
+  "postCreateCommand": "docker-compose up -d", // Start Redis Stack in the background
+  "forwardPorts": [6379, 8001], // Expose Redis and Redis Stack UI ports
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": ["ms-azuretools.vscode-docker", "aliariff.vscode-redis"]
+    }
+  }
+}
