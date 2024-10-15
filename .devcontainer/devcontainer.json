@@ -1,0 +1,18 @@
+{
+  "name": "Universal Redis",
+  "image": "ghcr.io/corndel-swe/universal-redis:latest",
+  "user": "root",
+  "postCreateCommand": "npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": ["redis.redis-for-vscode"]
+    }
+  },
+  "forwardPorts": [6379],
+  "portsAttributes": {
+    "6379": {
+      "label": "Redis",
+      "onAutoForward": "notify"
+    }
+  }
+}
