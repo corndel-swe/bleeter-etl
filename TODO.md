@@ -14,7 +14,7 @@ working in the following order:
 
 There is a CSV file in `sources` called `sessions`.
 
-- [ ] Read the CSV file using your preferred programming language
+- [ ] Read the CSV file using your preferred programming language ([notes]())
 
 - [ ] Transform each row into a JSON representation
 

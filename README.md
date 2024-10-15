@@ -71,4 +71,22 @@ installed. (Redis Stack contains more features than regular Redis.)
 
 ## Moving on
 
+There are some docs available on working with Redis in various programming
+languages:
+
+- [JS](https://tech-docs.corndel.com/express/redis)
+- [Python](https://tech-docs.corndel.com/flask/redis)
+- [Java](https://tech-docs.corndel.com/javalin/redis)
+- [C#](https://tech-docs.corndel.com/dotnet/redis)
+
+Remember also that there are tech docs to help you with:
+
+- setting up a project
+
+- working with the file system
+
+- reading from a database
+
+which will all be useful.
+
 Take a look at the `TODO.md` to see what your tasks are in more detail.
