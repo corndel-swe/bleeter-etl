@@ -14,9 +14,9 @@ working in the following order:
 
 There is a CSV file in `sources` called `sessions`.
 
-- [ ] Read the CSV file using your preferred programming language ([notes]())
+- [ ] Read the CSV file using your preferred programming language
 
-- [ ] Transform each row into a JSON representation
+- [ ] Transform each row as needed to prepare it for storage in Redis JSON.
 
 - [ ] Store the JSON representation in Redis
 
@@ -26,7 +26,7 @@ There is a table in the `bleeter.sqlite` database called `notifications`.
 
 - [ ] Extract the data from the table
 
-- [ ] Transform each row into a JSON representation
+- [ ] Transform each row as needed to prepare it for storage in Redis JSON.
 
 - [ ] Store the JSON representation in Redis
 

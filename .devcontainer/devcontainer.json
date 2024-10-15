@@ -1,6 +1,5 @@
 {
   "name": "Universal Redis",
   "image": "ghcr.io/corndel-swe/universal-redis:latest",
-  "user": "root",
-  "postCreateCommand": "redis-stack-server"
+  "user": "root"
 }

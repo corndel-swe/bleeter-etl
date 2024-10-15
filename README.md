@@ -65,13 +65,19 @@ anything locally.
 2. Click it, switch to the _Codespaces_ tab, and click "Create codespace on
    main".
 
-The Codespace has Redis Stack pre-installed, so there is nothing more to do.
+3. After the editor has loaded, open a terminal and run the command
+
+   ```bash
+   redis-stack-server
+   ```
+
+This should set up the Redis database ready to use.
 
 ### Option 2: Working locally
 
 If you are working on your local machine, you will need to get
 [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/)
-installed. (Redis Stack contains more features than regular Redis.)
+installed and running. (Redis Stack contains more features than regular Redis.)
 
 ## Moving on
 
