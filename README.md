@@ -61,7 +61,7 @@ anything locally.
 2. Click it, switch to the _Codespaces_ tab, and click "Create codespace on
    main".
 
-The Codespace has Redis pre-installed, so there is nothing more to do.
+The Codespace has Redis Stack pre-installed, so there is nothing more to do.
 
 ### Option 2: Working locally
 
