@@ -52,5 +52,23 @@ There is also a table of `bleets` in the `bleeter.sqlite` database which
 contains hashtags! Include the hashtag counts from the database table as well as
 the text file.
 
-Great work! You've learned how to work with Redis as a key/value store and as a
-document store.
+## 4. Images
+
+> [!NOTE]
+>
+> This is an involved task and is intended as an open-ended challenge for anyone
+> who completes steps 0. to 3. Approach it with a problem-solving mindset but
+> don't worry if you don't get it complete.
+
+There are several images in the `images` folder which users have shared on our
+platform without alt text.
+
+Use an LLM to create a alt tag text for each image, and store the alt text in
+Redis with the name of the image. E.g.
+
+```
+alt:image_1 : "A wooden path leads out to the beach."
+```
+
+There are too many images here to do by hand, and more are being shared every
+day, so we'll need some way of automating this.
