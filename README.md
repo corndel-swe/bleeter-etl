@@ -1,5 +1,9 @@
 # Bleeter ETL
 
+<p align="center">
+  <img width="200px" src="logo.png" />
+</p>
+
 Welcome back to Bleeter, the sheepish micro-blogging platform!
 
 Things are going from strength to strength at Bleeter, but we have started

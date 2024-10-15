@@ -1,9 +1,5 @@
 # Todo
 
-<p align="center">
-  <img width="200px" src="logo.png" />
-</p>
-
 There are some different data sources in the `sources` folder. We'd recommend
 working in the following order:
 
