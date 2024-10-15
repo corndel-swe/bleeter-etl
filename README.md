@@ -75,8 +75,11 @@ There are some docs available on working with Redis in various programming
 languages:
 
 - [JS](https://tech-docs.corndel.com/express/redis)
+
 - [Python](https://tech-docs.corndel.com/flask/redis)
+
 - [Java](https://tech-docs.corndel.com/javalin/redis)
+
 - [C#](https://tech-docs.corndel.com/dotnet/redis)
 
 Remember also that there are tech docs to help you with:
