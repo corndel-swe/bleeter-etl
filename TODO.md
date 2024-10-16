@@ -5,6 +5,9 @@ working in the following order:
 
 ## 0. Check that Redis works
 
+Make sure you have run `redis-stack-server` in a terminal first. This ensures
+that Redis is running.
+
 - [ ] Try storing and reading a simple key-value pair in Redis and see if it
       works.
 
